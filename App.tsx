@@ -1,74 +1,87 @@
-import React from "react";
-import { SafeAreaView, ScrollView } from "react-native";
-import UserCard from "./tugas7/1";
+import React from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
-        <UserCard 
-          name="Bluth George" 
-          email="george.bluth@reqres.in" 
-          avatar={require("./asset/1.jpg")} 
-        />
-        <UserCard 
-          name="Weaver Janet" 
-          email="janet.weaver@reqres.in" 
-          avatar={require("./asset/2.jpg")} 
-        />
-        <UserCard 
-          name="Emma Wong " 
-          email="emma.wong@reqres.in" 
-          avatar={require("./asset/3.jpg")} 
-        />
-        <UserCard 
-          name="Eve Holt" 
-          email="eve.holt@reqres.in" 
-          avatar={require("./asset/4.jpg")} 
-        />        
-        <UserCard 
-          name="Charles Morris " 
-          email=" charles.morris@reqres.in" 
-          avatar={require("./asset/5.jpg")} 
-        />  
-        <UserCard 
-          name="Tracey Ramos" 
-          email="tracey.ramos@reqres.in" 
-          avatar={require("./asset/6.jpg")} 
-        />
-        <UserCard 
-          name="Michael Lawson " 
-          email="michael.lawson@reqres.in" 
-          avatar={require("./asset/7.jpg")} 
-        />
-        <UserCard 
-          name="Lindsay Ferguson " 
-          email=" lindsay.ferguson@reqres.in" 
-          avatar={require("./asset/8.jpg")} 
-        />
-        <UserCard 
-          name="Tobias Funke" 
-          email=" tobias.funke@reqres.in" 
-          avatar={require("./asset/9.jpg")} 
-        />        
-        <UserCard 
-          name="Byron Fields " 
-          email=" byron.fields@reqres.in" 
-          avatar={require("./asset/10.jpg")} 
-        /> 
-        <UserCard 
-          name="George Edwards" 
-          email="george.edwards@reqres.in" 
-          avatar={require("./asset/11.jpg")} 
-        />        
-        <UserCard 
-          name="Rachel Howell" 
-          email="rachel.howell@reqres.in" 
-          avatar={require("./asset/12.jpg")} 
-        />
-      </ScrollView>
+    <SafeAreaView style={styles.safeArea}>
+
+      {/* Konten Tengah */}
+      <View style={styles.content}>
+        <View style={styles.logoContainer}>
+          <Image
+            source={require('./asset/images.png')} // Pastikan path dan nama file benar
+            style={styles.logo}
+          />
+        </View>
+        <Text style={styles.title}>Pustaka Ku</Text>
+      </View>
+
+      {/* Navigasi Bawah */}
+      <View style={styles.navigation}>
+        <TouchableOpacity onPress={() => console.log('Back')}>
+          <Text style={styles.navIcon}>{'<'}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => console.log('Center')}>
+          <Text style={styles.navIcon}>{'◉'}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => console.log('Next')}>
+          <Text style={styles.navIcon}>{'>'}</Text>
+        </TouchableOpacity>
+      </View>
+
     </SafeAreaView>
   );
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  content: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  logoContainer: {
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  logo: {
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    resizeMode: 'contain',
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: 'black',
+    fontFamily: 'serif',
+    textAlign: 'center',
+  },
+  navigation: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 20,
+    paddingHorizontal: 40,
+    width: '100%',
+  },
+  navIcon: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});

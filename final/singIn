@@ -1,0 +1,149 @@
+import React from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+import { FontAwesome, Entypo, Feather } from '@expo/vector-icons';
+
+const LoginScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.welcome}>Hi, Welcome Back!</Text>
+      <Text style={styles.subtitle}>Sign in to your account</Text>
+
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Username</Text>
+        <View style={styles.inputRow}>
+          <FontAwesome name="user-circle" size={20} color="purple" style={styles.icon} />
+          <TextInput placeholder="Enter your username" style={styles.input} />
+        </View>
+
+        <Text style={styles.label}>Password</Text>
+        <View style={styles.inputRow}>
+          <Entypo name="lock" size={20} color="black" style={styles.icon} />
+          <TextInput placeholder="Enter your Password" secureTextEntry style={styles.input} />
+        </View>
+
+        <TouchableOpacity>
+          <Text style={styles.forgot}>Forgot my password?</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.loginBtn}>
+        <Text style={styles.loginText}>Login</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.orText}>or sign in with</Text>
+
+      <View style={styles.socialIcons}>
+        <Entypo name="mail" size={30} style={styles.socialIcon} />
+        <Feather name="facebook" size={30} style={styles.socialIcon} />
+        <Feather name="twitter" size={30} style={styles.socialIcon} />
+      </View>
+
+      <View style={styles.signupRow}>
+        <Text>Don't have an account ? </Text>
+        <TouchableOpacity>
+          <Text style={styles.signupLink}>signup</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.navIcons}>
+        <Text style={styles.navIcon}>{'<'}</Text>
+        <Text style={styles.navIcon}>{'◉'}</Text>
+        <Text style={styles.navIcon}>{'>'}</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default LoginScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#3FE0F2',
+    alignItems: 'center',
+    padding: 20,
+  },
+  welcome: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 50,
+  },
+  subtitle: {
+    fontSize: 16,
+    marginBottom: 30,
+  },
+  inputContainer: {
+    width: '100%',
+  },
+  label: {
+    marginLeft: 10,
+    marginBottom: 5,
+    fontWeight: '600',
+    color: 'purple',
+  },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#eee',
+    borderRadius: 5,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  },
+  icon: {
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
+    height: 40,
+  },
+  forgot: {
+    alignSelf: 'flex-end',
+    color: 'blue',
+    marginBottom: 20,
+  },
+  loginBtn: {
+    backgroundColor: 'white',
+    paddingVertical: 12,
+    paddingHorizontal: 50,
+    borderRadius: 5,
+    marginBottom: 20,
+  },
+  loginText: {
+    fontWeight: 'bold',
+  },
+  orText: {
+    marginBottom: 10,
+  },
+  socialIcons: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  socialIcon: {
+    marginHorizontal: 10,
+  },
+  signupRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  signupLink: {
+    color: 'blue',
+  },
+  navIcons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '60%',
+    position: 'absolute',
+    bottom: 20,
+  },
+  navIcon: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+});
